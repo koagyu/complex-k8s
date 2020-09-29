@@ -1,0 +1,20 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: koagyu-com-tls
+spec:
+  secretName: koagyu-com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: koagyu.com
+  dnsNames:
+    - koagyu.com
+    - www.koagyu.com
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - koagyu.com
+          - www.koagyu.com
