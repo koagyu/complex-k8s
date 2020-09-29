@@ -1,4 +1,4 @@
-apiVersion: cert-manager.io/v1alpha2
+apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: koagyu-com-tls
@@ -11,10 +11,3 @@ spec:
   dnsNames:
     - koagyu.com
     - www.koagyu.com
-  acme:
-    config:
-      - http01:
-          ingressClass: nginx
-        domains:
-          - koagyu.com
-          - www.koagyu.com
